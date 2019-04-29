@@ -245,3 +245,51 @@ const addNums2 = (num1, num2) => {
   return num1 + num2;
 };
 console.log(addNums2(5, 9));
+
+//don't need return when only doing 1 thing
+const addNums3 = (num1 = 1, num2 = 2) => num1 + num2;
+console.log(addNums3());
+
+//Object oriented programming
+// Contructor function (date object can call many methods)
+function Person(firstName, lastName, dob) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.dob = new Date(dob);
+}
+
+Person.prototype.getBirthYear = function() {
+  return this.dob.getFullYear();
+};
+
+Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+// ES 6 Classes
+class Person1 {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+  }
+  getBirthYear() {
+    return this.dob.getFullYear();
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+// instantiate object
+const person1 = new Person("John", "Doe", "4-3-1980");
+const person2 = new Person("Jane", "Smith", "4-3-1970");
+console.log(person1);
+console.log(person2.dob);
+console.log(person1.getBirthYear());
+console.log(person1.getFullName());
+
+//Protoypes old way
+console.log(person1);
+
+console.log(person2.getFullName());
